@@ -1,0 +1,41 @@
+---
+title: "My first RMD Document"
+author: "Aboli Moroney"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: bookdown::html_document2
+bibliography: example.bib
+---
+
+Here is some inline code `r 1+1`
+
+``` {r starwars-plot, fig.cap = "A ggplot of starwars stuff"}
+library(tidyverse)
+starwars %>%
+  filter(species == "Human") %>%
+  ggplot()+
+  aes(x = height,
+      y = mass) +
+      geom_point()
+```
+
+```{r starwars-tbl}
+starwars %>%
+  filter(species == "Human") %>%
+  select(name,
+  height,
+  mass,
+  homeworld) %>%
+  knitr::kable(caption = "A knitr table of starwars data")
+```
+
+View scatter plot \@ref(fig:starwars-plot)...
+View table \@ref(tab:starwars-tbl)...
+
+```{r, my-fig, fig.cap= "My non-code figure"}
+    knitr::include_graphics("C:/Users/aboli/Pictures/keep_calm_and_finish_the_project.png")
+```
+We can see in Figure \@ref(fig:my-fig) ...
+
+@stodden2018enabling says useful things about...
+
+# References cited
